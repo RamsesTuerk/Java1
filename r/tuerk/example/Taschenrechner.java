@@ -11,17 +11,17 @@ public class Taschenrechner {
 
     public static void EingabeWerte() {
 
-        System.out.println("Bitte gebe Zahl a an.");
-        int a = konsoleneingabeInt();
+        while (true) {
+            System.out.println("Bitte gebe Zahl a an.");
+            int a = konsoleneingabeInt();
 
-        System.out.println("Bitte gebe Zahl b an.");
-        int b = konsoleneingabeInt();
+            System.out.println("Bitte gebe Zahl b an.");
+            int b = konsoleneingabeInt();
 
-        System.out.println("Welche funktion Möchtest du benutzen?");
+            System.out.println("Welche funktion Möchtest du benutzen?");
 
-
-        EingabeFunktion(a,b);
-
+            EingabeFunktion(a, b);
+        }
     }
 
     public static void EingabeFunktion(int a, int b){
@@ -60,17 +60,14 @@ public class Taschenrechner {
                 EingabeFunktion(a,b);
                 break;
         }
-        EingabeWerte();
     }
 
     public static int Umfang(int a, int b) {
         return a * 2 + b * 2;
     }
-
     public static int Flächeninhalt(int a, int b) {
         return a * b;
     }
-
     public static int Addition(int a, int b) {
         return a + b;
     }
@@ -97,5 +94,4 @@ public class Taschenrechner {
     public static void closeScanner() {
         scanner.close();
     }
-
 }
