@@ -61,7 +61,7 @@ import java.util.Scanner;
 
         private static void bezahlen(double preis){
             String[] rechenoperationen = {"1) 0.05€", "2) 0.10€", "3) 0.20€", "4) 0.50€", "5) 1.00€", "6) 2.00€"};
-            BigDecimal restbetrag= new BigDecimal(preis);
+            double restbetrag = preis;
 
             for(int i = 0; i < rechenoperationen.length ; i++){
                 System.out.println(rechenoperationen[i]);
@@ -70,33 +70,33 @@ import java.util.Scanner;
 
             while (true) {
                 System.out.println("Restbetrag: " + restbetrag);
-                if(restbetrag.intValue() > 0){
+                if(restbetrag > 0){
                     int decision = konsoleneingabeInt();
                     switch (decision) {
                         case 1:
-                            restbetrag = restbetrag.subtract(new BigDecimal(0.050000));
+                            restbetrag = (double) Math.round((restbetrag - 0.05) * 100) /100;
                             break;
                         case 2:
-                            restbetrag = restbetrag.subtract(new BigDecimal(0.100000));
+                            restbetrag = (double) Math.round((restbetrag - 0.10) * 100) /100;
                             break;
                         case 3:
-                            restbetrag = restbetrag.subtract(new BigDecimal(0.200000));
+                            restbetrag = (double) Math.round((restbetrag - 0.20) * 100) /100;
                             break;
                         case 4:
-                            restbetrag = restbetrag.subtract(new BigDecimal(0.500000));
+                            restbetrag = (double) Math.round((restbetrag - 0.50) * 100) /100;
                             break;
                         case 5:
-                            restbetrag = restbetrag.subtract(new BigDecimal(1.000000));
+                            restbetrag = (double) Math.round((restbetrag - 1.00) * 100) /100;
                             break;
                         case 6:
-                            restbetrag = restbetrag.subtract(new BigDecimal(2.000000));
+                            restbetrag = (double) Math.round((restbetrag - 2.00) * 100) /100;
                             break;
                         default:
                             System.out.println("Dies ist keine Gültige Münze!");
                             break;
                     }
                 }else{
-                    System.out.println("vielen Dank dein Wechselgeld beträgt: " + (restbetrag.multiply(new BigDecimal(-1))) + "€");
+                    System.out.println("vielen Dank dein Wechselgeld beträgt: " + (restbetrag* -1) + "€");
                     break;
                 }
             }
