@@ -1,8 +1,5 @@
 package r.tuerk.example;
-
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
@@ -63,10 +60,10 @@ import java.util.Scanner;
             String[] rechenoperationen = {"1) 0.05€", "2) 0.10€", "3) 0.20€", "4) 0.50€", "5) 1.00€", "6) 2.00€"};
             double restbetrag = preis;
 
-            for(int i = 0; i < rechenoperationen.length ; i++){
-                System.out.println(rechenoperationen[i]);
+            for (String s : rechenoperationen) {
+                System.out.println(s);
             }
-            System.out.println("");
+            System.out.println();
 
             while (true) {
                 System.out.println("Restbetrag: " + restbetrag);
@@ -104,11 +101,11 @@ import java.util.Scanner;
         }
 
         private static double kostenRechner(LocalDateTime startTime, LocalDateTime endTime) {
-            double gebühr = 1.25;
+            double gebuehr = 1.25;
             double dreissigMin = 1.5;
             double minutes = ChronoUnit.SECONDS.between(startTime, endTime); /// Eigentlich Minuten zum Testen Sekunden
 
-            return (gebühr + Math.ceil(minutes/30)*dreissigMin) ;
+            return (gebuehr + Math.ceil(minutes/30)*dreissigMin) ;
         }
 
 
