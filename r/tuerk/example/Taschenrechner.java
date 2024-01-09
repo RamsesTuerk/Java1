@@ -1,10 +1,11 @@
 package r.tuerk.example;
+
 import java.util.Scanner;
 
 public class Taschenrechner {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         EingabeWerte();
         closeScanner();
     }
@@ -24,19 +25,19 @@ public class Taschenrechner {
         }
     }
 
-    public static void EingabeFunktion(int a, int b){
+    public static void EingabeFunktion(int a, int b) {
         String[] rechenoperationen = {"1) Umfang", "2) Flächeninhalt", "3) Addition", "4) Subtraktion", "5) Division", "6) Multiplikation"};
 
-        for(int i = 0; i < rechenoperationen.length ; i++){
+        for (int i = 0; i < rechenoperationen.length; i++) {
             System.out.println(rechenoperationen[i]);
         }
 
-        Ausgabe(konsoleneingabeInt(),a,b);
+        Ausgabe(konsoleneingabeInt(), a, b);
     }
 
-    public static void Ausgabe(int funktion, int a, int b){
+    public static void Ausgabe(int funktion, int a, int b) {
 
-        switch (funktion){
+        switch (funktion) {
             case 1:
                 System.out.println("Umfang: " + Umfang(a, b));
                 break;
@@ -57,7 +58,7 @@ public class Taschenrechner {
                 break;
             default:
                 System.out.println("Die Funktion Existiert nicht bitte gebe eine andere An;");
-                EingabeFunktion(a,b);
+                EingabeFunktion(a, b);
                 break;
         }
     }
@@ -65,18 +66,23 @@ public class Taschenrechner {
     public static int Umfang(int a, int b) {
         return a * 2 + b * 2;
     }
+
     public static int Flächeninhalt(int a, int b) {
         return a * b;
     }
+
     public static int Addition(int a, int b) {
         return a + b;
     }
+
     public static int Subtraktion(int a, int b) {
         return a - b;
     }
+
     public static int Division(int a, int b) {
         return a / b;
     }
+
     public static int Multiplikation(int a, int b) {
         return a * b;
     }
