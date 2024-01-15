@@ -3,18 +3,18 @@ import java.util.Scanner;
 public class WarenkorbOnline {
 
     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         double warenkorb = 0;
         int ammount = 0;
         double rabatt = 0;
         double smallesPrice = 0;
-        boolean kaufen = true;
 
-        while(kaufen){
+        while(true){
             System.out.println("Produkt Hinzufügen!");
             double price = konsoleneingabeInt();
 
-            if(price == 0){kaufen = false;}
+            if(price == 0){ break;}
 
             warenkorb += price;
             ammount++;
