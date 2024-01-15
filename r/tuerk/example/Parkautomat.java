@@ -5,10 +5,15 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Parkautomat {
+
+    public static final double gebuehr = 1.25;
+    public static final double dreissigMin = 1.5;
+    public static final double parkZeit = 30;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         start();
+        closeScanner();
     }
 
     public static void start() {
@@ -54,8 +59,6 @@ public class Parkautomat {
 
         preis = kostenRechner(startTime, endTime);
         bezahlen(preis);
-
-
     }
 
     private static void bezahlen(double preis) {
@@ -103,16 +106,12 @@ public class Parkautomat {
     }
 
     private static double kostenRechner(LocalDateTime startTime, LocalDateTime endTime) {
-        double gebuehr = 1.25;
-        double dreissigMin = 1.5;
         double minutes = ChronoUnit.SECONDS.between(startTime, endTime); /// Eigentlich Minuten zum Testen Sekunden
 
-        return (gebuehr + Math.ceil(minutes / 30) * dreissigMin);
+        return (gebuehr + Math.ceil((minutes+1) / parkZeit) * dreissigMin); // + 1 um bei der 0 min 0 sec +1 zu rechnen. ungenauigkeit von 1 Sekunde anstatt 1 min
     }
 
-
     private static LocalDateTime getTime() {
-
         return LocalDateTime.now();
     }
 
@@ -124,6 +123,10 @@ public class Parkautomat {
                 System.out.println("Fehler: Bitte geben Sie eine gültige Ganzzahl ein.");
             }
         }
+    }
+
+    public static void closeScanner() {
+        scanner.close();
     }
 
 }
