@@ -1,10 +1,9 @@
 package r.tuerk.example;
-
 import java.util.Scanner;
 
 public class Preisauskunft {
-
     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         while (true) {
