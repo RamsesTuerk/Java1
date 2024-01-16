@@ -33,7 +33,6 @@ public class WarenkorbOnline {
             }
 
             System.out.println("Warenkorb Preis: "+ warenkorb + " Rabatt: " + rabatt + " Menge: " + ammount);
-            System.out.println(smallesPrice);
         }
     }
 
